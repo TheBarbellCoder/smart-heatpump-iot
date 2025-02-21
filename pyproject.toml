@@ -1,0 +1,13 @@
+[project]
+name = "smart-heatpump-iot"
+version = "0.1.0"
+description = "An IoT-based heat pump monitoring and control system using Raspberry Pi, MQTT, and cloud integration."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1.394",
+    "ruff>=0.9.6",
+]
