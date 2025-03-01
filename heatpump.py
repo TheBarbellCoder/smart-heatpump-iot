@@ -1,3 +1,7 @@
+import polars as pl
+import plotly.express as px
+
+
 class HeatPump:
     # TODO Explain how an heatpump works and what are the steps involved
     refrigerant_properties = {
@@ -122,4 +126,89 @@ class HeatPump:
             # Heat absorbed from source
             q_evaporator = q_condensor - w_compressor
 
-            # TODO Missing return!!
+        return {
+            "mode": mode,
+            "source_temp": source_temp,
+            "sink_temp": sink_temp,
+            "cop": cop,
+            "evaporator_heat_transfer": q_evaporator,
+            "compressor_work": w_compressor,
+            "condensor_heat_transfer": q_condensor,
+        }
+
+    def performance_map(self, mode="heating", temp_range=None):
+        """
+        Generate comprehensive performance map
+
+        :param mode: 'heating' or 'cooling'
+        :param temp_range: Custom temperature range to simulate
+        :return: Performance data across temperatures
+        """
+        if temp_range is None:
+            # Default temperature ranges
+            if mode == "heating":
+                temp_range = {"source": range(-5, 20, 5), "sink": range(35, 55, 5)}
+            else:  # cooling
+                temp_range = {"source": range(20, 45, 5), "sink": range(18, 30, 5)}
+
+        performance_data = []
+
+        for so in temp_range["source"]:
+            for si in temp_range["sink"]:
+                cycle_data = self.simulate_thermodynamic_cycle(
+                    mode=mode, source_temp=so, sink_temp=si
+                )
+                performance_data.append(cycle_data)
+
+        return performance_data
+
+    def visualize_performance(self, performance_data):
+        """
+        Create detailed visualization of heat pump performance
+
+        :param performance_data: Performance data from simulation
+        """
+
+        # Extract data for plotting
+        source_temps = [data["source_temp"] for data in performance_data]
+        sink_temps = [data["sink_temp"] for data in performance_data]
+        cops = [data["cop"] for data in performance_data]
+        heat_transfers = [data["condensor_heat_transfer"] for data in performance_data]
+
+        df_cops = pl.DataFrame(
+            data={
+                "Source Temperature (°C)": source_temps,
+                "Sink Temperature (°C)": sink_temps,
+                "Coefficient of Performance (CoP)": cops,
+                "Condensor Heat Transfer": heat_transfers,
+            }
+        )
+
+        # Create subplots
+
+        # CoP plot
+        cop_plot = px.scatter(
+            data_frame=df_cops,
+            x="Source Temperature (°C)",
+            y="Sink Temperature (°C)",
+            color="Coefficient of Performance (CoP)",
+            title="Coefficient of Performance (CoP)",
+        )
+        cop_plot.show()
+
+        # Heat Transfer Plot
+        cht_plot = px.scatter(
+            data_frame=df_cops,
+            x="Source Temperature (°C)",
+            y="Sink Temperature (°C)",
+            color="Condensor Heat Transfer",
+            title="Condensor Heat Transfer",
+        )
+        cht_plot.show()
+
+
+if __name__ == "__main__":
+    # create heat pump instance
+    heat_pump = HeatPump()
+    heating_performance = heat_pump.performance_map()
+    heat_pump.visualize_performance(heating_performance)

@@ -4,7 +4,10 @@ version = "0.1.0"
 description = "An IoT-based heat pump monitoring and control system using Raspberry Pi, MQTT, and cloud integration."
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "plotly[express]>=6.0.0",
+    "polars>=1.22.0",
+]
 
 [dependency-groups]
 dev = [
