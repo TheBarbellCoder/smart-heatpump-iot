@@ -23,7 +23,7 @@ class HeatPump:
         },
     }
 
-    def __init__(self, refrigerant="R410A"):
+    def __init__(self, refrigerant="R410Aa", rated_power=3):  # rated_power in Watts
         """
         Advanced Heat Pump Simulation with Detailed Thermodynamic Modeling
 
@@ -36,10 +36,11 @@ class HeatPump:
         self.compressor_efficiency = 0.85
         self.heat_exchanger_efficiency = 0.75
 
-        self.target_temp = None
-        self.heat_output = None
-        self.cooling_rate = None
-        self.compressor_on = False
+        # Energy Consumption Parameters
+        self.rated_power = rated_power
+        self.standby_power = 0.001  # kW: Usually 5-30 Watts.
+        self.defrost_power = rated_power * 1.2  # Assumes 20% more power during defrost
+        self.auxiliary_heater_power = 2  # kW
 
     def calculate_carnot_cop(self, source_temp, sink_temp):
         """
@@ -205,6 +206,68 @@ class HeatPump:
             title="Condensor Heat Transfer",
         )
         cht_plot.show()
+
+    def calculate_power_consumption(self, outdoor_temp, indoor_temp, mode="heating"):
+        """
+        Calculate instantenous power consumpionbased on conditions
+
+        :param outdoor_temp: Outdoor temperature (°C)
+        :param indoor_temp: Indoor temperature (°C)
+        :param mode: 'heating' or 'cooling'
+        :return: Dictionary with power consumption details
+        """
+
+        # Base power calculation using temperature difference
+        temp_diff = abs(outdoor_temp - indoor_temp)
+
+        # Calculate Part Load Ratio (PLR)
+        # PLR determines how hard the heat pump needs to work relative to its maximum capacity
+        # Normaized to 20°C (assumes full capacity at >= 20°C)
+        # Capped at 1.0 (100% capacity)
+        plr = min(1.0, temp_diff / 20.0)
+
+        # Calculate compressor power
+        # Scales the rated power by the part load ratio
+        # The compressor consumes more power when temperature differences are larger
+        compressor_power = self.rated_power * plr
+
+        # Fan power (constant)
+        # Assumes fans consume 10% of the rated power
+        # Fan power is constant regardless of the load
+        fan_power = self.rated_power * 0.1
+
+        # Additional power factors
+        # 1. Defrosting is needed if outdoor temperature is < 5°C.
+        # It prevents ice buildup on the outdoor coil.
+        defrost_needed = mode == "heating" and 5 > outdoor_temp
+        # 2. Auxiliary electric heating is activated below -5°C.
+        # This suppliments the heat pump when it becomes less efficient in very cold weather
+        auxiliary_heat_needed = mode == "heating" and -5 > outdoor_temp
+
+        # Calculate total power
+        total_power = self.standby_power + compressor_power + fan_power
+
+        if defrost_needed:
+            defrost_factor = 0.1  # Assumes 10% of operating time spent in defrost
+            total_power += self.defrost_power * defrost_factor
+
+        if auxiliary_heat_needed:
+            # The factor increases as temperature drops below -5°C.
+            # Scales linearly: at -15°C, factor=1.0 (full auciliary power)
+            aux_heat_factor = (-outdoor_temp - 5) / 10
+            total_power += self.auxiliary_heater_power * aux_heat_factor
+
+        return {
+            "total_power": total_power,
+            "compressor_power": compressor_power,
+            "fan_power": fan_power,
+            "defrost_power": self.defrost_power if defrost_needed else 0,
+            "auxiliary_power": self.auxiliary_heater_power
+            if auxiliary_heat_needed
+            else 0,
+            "standby_power": self.standby_power,
+            "part_load_ratio": plr,
+        }
 
 
 if __name__ == "__main__":
