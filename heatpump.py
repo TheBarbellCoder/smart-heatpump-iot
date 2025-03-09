@@ -23,7 +23,7 @@ class HeatPump:
         },
     }
 
-    def __init__(self, refrigerant="R410Aa", rated_power=3):  # rated_power in Watts
+    def __init__(self, refrigerant="R410A", rated_power=3):  # rated_power in Watts
         """
         Advanced Heat Pump Simulation with Detailed Thermodynamic Modeling
 
@@ -396,3 +396,10 @@ if __name__ == "__main__":
     heat_pump = HeatPump()
     heating_performance = heat_pump.performance_map()
     heat_pump.visualize_performance(heating_performance)
+    # Example daily temperature profile
+    daily_temps = [5, 4, 3, 2, 1, 0, 1, 2, 4, 6, 8, 10, 
+                  12, 13, 14, 13, 12, 10, 8, 7, 6, 5, 4, 3]
+
+    # Calculate daily consumption
+    daily_data = heat_pump.calculate_daily_consumption(daily_temps, mode='heating')
+    heat_pump.plot_energy_consumption(daily_data)
