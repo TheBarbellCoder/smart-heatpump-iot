@@ -36,6 +36,11 @@ class HeatPump:
         self.compressor_efficiency = 0.85
         self.heat_exchanger_efficiency = 0.75
 
+        # Thermodynamic Cycle Parameters
+        self.pressure_ratio = 4.0  # Compression ratio
+        self.superheat_temp = 5  # °C above saturated vapor
+        self.subcooling_temp = 5  # °C below saturated liquid
+
         # Energy Consumption Parameters
         self.rated_power = rated_power
         self.standby_power = 0.001  # kW: Usually 5-30 Watts.
@@ -70,7 +75,9 @@ class HeatPump:
         )
         return real_cop
 
-    def simulate_thermodynamic_cycle(self, mode="heating", source_temp=5, sink_temp=20):
+    def simulate_thermodynamic_cycle(
+        self, mode="cooling", source_temp=35, sink_temp=20
+    ):
         """
         Simulate complete themodynamic cycle
 
@@ -97,29 +104,60 @@ class HeatPump:
 
         # TODO Add heat transfer equation and laws of energy conservation(thermodynamics) for reference
 
+            # Latent heat (phase change)
+            q_latent = self.mass_flow_rate * props["latent_heat"]
+
+            # Superheat
+            q_superheat = (
+                self.mass_flow_rate
+                * props["specific_heat_capacity_gas"]
+                * self.superheat_temp
+            )
+
         # Heat transfer calculations
         if mode == "heating":
             # Heat is absorbed from source
-            q_evaporator = (
+
+            # Sensible heat (liquid heating to boiling point)
+            
+            # TODO props["boiling_point"] is incorrect here.
+            # This needs to be changed to actual temperature of the refrigerant.
+            # The refrigerant is maintained at a particular temperature by
+            # application of pressure by the compressor.
+            q_sensible = (
                 self.mass_flow_rate
                 * props["specific_heat_capacity_liquid"]
-                * (sink_temp_k - source_temp_k)
+                * (props["boiling_point"] + 273.15 - source_temp_k)
             )
+
+            # Total heat absorption
+            q_evaporator = abs(q_sensible) + q_latent + q_superheat
 
             # Work input to compressor
             w_compressor = q_evaporator / cop
 
             # Heat realease to the sink
             q_condensor = q_evaporator + w_compressor
+
         else:  # cooling mode
             # Calculations similar to heating but reversed for cooling
 
             # Heat rejected to the sink
-            q_condensor = (
+
+            # Sensible heat (liquid heating to boiling point)
+            
+            # TODO props["boiling_point"] is incorrect here.
+            # This needs to be changed to actual temperature of the refrigerant.
+            # The refrigerant is maintained at a particular temperature by
+            # application of pressure by the compressor.
+            q_sensible = (
                 self.mass_flow_rate
-                * props["specific_heat_capacity_gas"]
-                * (sink_temp_k - source_temp)
+                * props["specific_heat_capacity_liquid"]
+                * (sink_temp_k - props["boiling_point"] + 273.15)
             )
+
+            # Total heat absorption
+            q_condensor = abs(q_sensible) + q_latent + q_superheat
 
             # Work input to compressor
             w_compressor = q_condensor / cop
@@ -135,6 +173,11 @@ class HeatPump:
             "evaporator_heat_transfer": q_evaporator,
             "compressor_work": w_compressor,
             "condensor_heat_transfer": q_condensor,
+            "details": {
+                "sensible_heat": q_sensible,
+                "latent_heat": q_latent,
+                "superheat": q_superheat,
+            },
         }
 
     def performance_map(self, mode="heating", temp_range=None):
