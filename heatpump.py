@@ -47,6 +47,9 @@ class HeatPump:
         self.defrost_power = rated_power * 1.2  # Assumes 20% more power during defrost
         self.auxiliary_heater_power = 2  # kW
 
+        # Operating Cost Parameters
+        self.electricity_rate = 0.80  # $/kWh
+
     def calculate_carnot_cop(self, source_temp, sink_temp):
         """
         Calculate the ideal (Carnot) Coefficient of Performance
@@ -104,22 +107,22 @@ class HeatPump:
 
         # TODO Add heat transfer equation and laws of energy conservation(thermodynamics) for reference
 
-            # Latent heat (phase change)
-            q_latent = self.mass_flow_rate * props["latent_heat"]
+        # Latent heat (phase change)
+        q_latent = self.mass_flow_rate * props["latent_heat"]
 
-            # Superheat
-            q_superheat = (
-                self.mass_flow_rate
-                * props["specific_heat_capacity_gas"]
-                * self.superheat_temp
-            )
+        # Superheat
+        q_superheat = (
+            self.mass_flow_rate
+            * props["specific_heat_capacity_gas"]
+            * self.superheat_temp
+        )
 
         # Heat transfer calculations
         if mode == "heating":
             # Heat is absorbed from source
 
             # Sensible heat (liquid heating to boiling point)
-            
+
             # TODO props["boiling_point"] is incorrect here.
             # This needs to be changed to actual temperature of the refrigerant.
             # The refrigerant is maintained at a particular temperature by
@@ -145,7 +148,7 @@ class HeatPump:
             # Heat rejected to the sink
 
             # Sensible heat (liquid heating to boiling point)
-            
+
             # TODO props["boiling_point"] is incorrect here.
             # This needs to be changed to actual temperature of the refrigerant.
             # The refrigerant is maintained at a particular temperature by
@@ -228,7 +231,7 @@ class HeatPump:
             }
         )
 
-        # Create subplots
+        # Create plots
 
         # CoP plot
         cop_plot = px.scatter(
@@ -311,6 +314,81 @@ class HeatPump:
             "standby_power": self.standby_power,
             "part_load_ratio": plr,
         }
+
+    def calculate_daily_consumption(self, daily_temps, mode="heating", target_temp=21):
+        """
+        Calculate daily energy consumption
+
+        :param daily_temps: List fo 24 hourly temperatures
+        :param mode: 'heating' or 'cooling'
+        :param target_temp: Target indoor temperature
+        :return: Dictionary with daily consumption metrics
+        """
+        hourly_consumption = []
+        total_energy = 0
+        peak_power = 0
+
+        for hour, temp in enumerate(daily_temps):
+            power_data = self.calculate_power_consumption(temp, target_temp, mode)
+            hourly_energy = power_data["total_power"]
+            total_energy += hourly_energy
+            peak_power = max(peak_power, power_data["total_power"])
+
+            hourly_consumption.append(
+                {
+                    "hour": hour,
+                    "temperature": temp,
+                    "power": power_data["total_power"],
+                    "energy": hourly_energy,
+                }
+            )
+
+        # Calculate costs
+        daily_cost = total_energy * self.electricity_rate
+
+        return {
+            "total_energy": total_energy,
+            "peak_power": peak_power,
+            "daily_cost": daily_cost,
+            "hourly_data": hourly_consumption,
+        }
+
+    # TODO Implement seasonal performance calculations
+    # def calculate_seasonal_performance(self, seasonal_temps, mode="heating")
+
+    def plot_energy_consumption(self, daily_consumption):
+        """
+        Visualize daily energy consumption patterns
+        :param daily_consumption: Daily consumption data
+        """
+
+        hours = [data["hour"] for data in daily_consumption["hourly_data"]]
+        power = [data["power"] for data in daily_consumption["hourly_data"]]
+        temps = [data["temperature"] for data in daily_consumption["hourly_data"]]
+
+        df_energy_consumption = pl.DataFrame(
+            data={"Hour of Day": hours, "Power (kW)": power, "Temperature (°C)": temps}
+        )
+
+        # Create plots
+
+        # Power consumption plot
+        pc_plot = px.line(
+            data_frame=df_energy_consumption,
+            x="Hour of Day",
+            y="Power (kW)",
+            title="Daily Power Consumption Profile",
+        )
+        pc_plot.show()
+
+        # Temperature plot
+        temp_plot = px.line(
+            data_frame=df_energy_consumption,
+            x="Hour of Day",
+            y="Temperature (°C)",
+            title="Daily Temperature Profile",
+        )
+        temp_plot.show()
 
 
 if __name__ == "__main__":
