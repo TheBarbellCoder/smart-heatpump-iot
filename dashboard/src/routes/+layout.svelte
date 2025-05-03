@@ -11,9 +11,13 @@
 	let isSimulated = $state(false);
 
 	setContext("systemState", {
-		get: () => isChecked,
-		set: (value) => isChecked = value,
-		toggle: () => isChecked = !isChecked
+		getOnOffState: () => isChecked,
+		setOnOffState: (value) => isChecked = value,
+		toggleOnOffState: () => isChecked = !isChecked,
+
+		getSimulationState: () => isSimulated,
+		setSimulationState: (value) => isSimulated = value,
+		toggleSimulationState: () => isSimulated = !isSimulated 
 	});
 
 	let { children } = $props();
