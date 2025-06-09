@@ -1,6 +1,5 @@
 <script>
   import { getContext } from "svelte";
-  import { AreaChart } from "layerchart";
   import { Slider } from "bits-ui";
   import cn from "clsx";
   import {
@@ -14,6 +13,7 @@
     Snowflake,
     ThermometerSimple,
   } from "phosphor-svelte";
+  import TimeSeriesChart from "../components/TimeSeriesChart.svelte";
 
   const systemState = getContext("systemState");
 
@@ -33,6 +33,14 @@
 
   let cop = 0.1;
   let currentEnergyConsumed = 1; // kW
+  const temperatureData = Array.from({ length: 24 }, (_, i) => {
+    const date = new Date();
+    date.setHours(date.getHours() - (23 - i));
+    return {
+      date: date,
+      value: 42 + Math.sin(i * 0.3) * 8 + Math.random() * 2,
+    };
+  });
 </script>
 
 <!-- System Overview section -->
@@ -137,68 +145,71 @@
 
 <!-- Temperature Control section -->
 <div class="flex-row p-3 m-6 border rounded-card-sm box-border items-center">
-  <div class="flex justify-between">
-    <div class="text-lg font-semibold tracking-tight">Temperature Control</div>
-    <div class="flex-row box-border justify-center items-center">
-      <!-- Slider for outdoor temperature setting -->
-      <div class="flex gap-x-3 h-7 justify-between items-center">
-        <div class="text-sm text-foreground/70 font-semibold w-[210px]">
-          Outdoor Temperature: {outdoorTemp}&deg;C
-        </div>
-        <Snowflake weight="bold" size="20" />
-        <Slider.Root
-          type="single"
-          bind:value={outdoorTemp}
-          min={-20}
-          max={42}
-          step={0.5}
-          class="relative flex w-[200px] touch-none select-none items-center"
-        >
-          <span
-            class="bg-dark-10 relative h-2 w-[200px] cursor-pointer overflow-hidden rounded-full"
-          >
-            <Slider.Range class="bg-foreground absolute h-full" />
-          </span>
-          <Slider.Thumb
-            index={0}
-            class={cn(
-              "border-border-input bg-background hover:border-dark-40 focus-visible:ring-foreground dark:bg-foreground dark:shadow-card focus-visible:outline-hidden data-active:scale-[0.98] data-active:border-dark-40 block size-[23px] cursor-pointer rounded-full border shadow-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-            )}
-          />
-        </Slider.Root>
-        <Fire weight="bold" size="20" />
+  <!--div class="flex justify-between"-->
+  <div class="text-lg font-semibold tracking-tight">Temperature Control</div>
+  <div class="flex-row box-border justify-center items-center">
+    <!-- Slider for outdoor temperature setting -->
+    <div class="flex gap-x-3 h-7 justify-end items-center">
+      <div class="text-sm text-foreground/70 font-semibold w-[210px]">
+        Outdoor Temperature: {outdoorTemp}&deg;C
       </div>
+      <Snowflake weight="bold" size="20" />
+      <Slider.Root
+        type="single"
+        bind:value={outdoorTemp}
+        min={-20}
+        max={42}
+        step={0.5}
+        class="relative flex w-[200px] touch-none select-none items-center"
+      >
+        <span
+          class="bg-dark-10 relative h-2 w-[200px] cursor-pointer overflow-hidden rounded-full"
+        >
+          <Slider.Range class="bg-foreground absolute h-full" />
+        </span>
+        <Slider.Thumb
+          index={0}
+          class={cn(
+            "border-border-input bg-background hover:border-dark-40 focus-visible:ring-foreground dark:bg-foreground dark:shadow-card focus-visible:outline-hidden data-active:scale-[0.98] data-active:border-dark-40 block size-[23px] cursor-pointer rounded-full border shadow-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+          )}
+        />
+      </Slider.Root>
+      <Fire weight="bold" size="20" />
+    </div>
 
-      <!-- Slider for indoor temperature setting -->
-      <div class="flex gap-x-3 h-7 justify-between items-center">
-        <div class="text-sm text-foreground/70 font-semibold w-[210px]">
-          Indoor Temperature: {targetTemp}&deg;C
-        </div>
-        <Snowflake weight="bold" size="20" />
-        <Slider.Root
-          type="single"
-          bind:value={targetTemp}
-          min={18}
-          max={22}
-          step={0.5}
-          class="relative flex w-[200px] touch-none select-none items-center"
-        >
-          <span
-            class="bg-dark-10 relative h-2 w-[200px] cursor-pointer overflow-hidden rounded-full"
-          >
-            <Slider.Range class="bg-foreground absolute h-full" />
-          </span>
-          <Slider.Thumb
-            index={0}
-            class={cn(
-              "border-border-input bg-background hover:border-dark-40 focus-visible:ring-foreground dark:bg-foreground dark:shadow-card focus-visible:outline-hidden data-active:scale-[0.98] data-active:border-dark-40 block size-[23px] cursor-pointer rounded-full border shadow-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-            )}
-          />
-        </Slider.Root>
-        <Fire weight="bold" size="20" />
+    <!-- Slider for indoor temperature setting -->
+    <div class="flex gap-x-3 h-7 justify-end items-center">
+      <div class="text-sm text-foreground/70 font-semibold w-[210px]">
+        Indoor Temperature: {targetTemp}&deg;C
       </div>
+      <Snowflake weight="bold" size="20" />
+      <Slider.Root
+        type="single"
+        bind:value={targetTemp}
+        min={18}
+        max={22}
+        step={0.5}
+        class="relative flex w-[200px] touch-none select-none items-center"
+      >
+        <span
+          class="bg-dark-10 relative h-2 w-[200px] cursor-pointer overflow-hidden rounded-full"
+        >
+          <Slider.Range class="bg-foreground absolute h-full" />
+        </span>
+        <Slider.Thumb
+          index={0}
+          class={cn(
+            "border-border-input bg-background hover:border-dark-40 focus-visible:ring-foreground dark:bg-foreground dark:shadow-card focus-visible:outline-hidden data-active:scale-[0.98] data-active:border-dark-40 block size-[23px] cursor-pointer rounded-full border shadow-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+          )}
+        />
+      </Slider.Root>
+      <Fire weight="bold" size="20" />
     </div>
   </div>
+  <!--/div-->
+
+  <!-- Temperature Chart -->
+  <TimeSeriesChart data={temperatureData} class="w-full h-[300px]" />
 </div>
 
 <h1>Welcome to SvelteKit</h1>
