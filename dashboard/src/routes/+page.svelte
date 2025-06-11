@@ -145,7 +145,6 @@
 
 <!-- Temperature Control section -->
 <div class="flex-row p-3 m-6 border rounded-card-sm box-border items-center">
-  <!--div class="flex justify-between"-->
   <div class="text-lg font-semibold tracking-tight">Temperature Control</div>
   <div class="flex-row box-border justify-center items-center">
     <!-- Slider for outdoor temperature setting -->
@@ -206,10 +205,16 @@
       <Fire weight="bold" size="20" />
     </div>
   </div>
-  <!--/div-->
 
   <!-- Temperature Chart -->
-  <TimeSeriesChart data={temperatureData} class="w-full h-[300px]" />
+  <TimeSeriesChart data={temperatureData} class="w-full h-[300px] mt-6" />
+</div>
+
+<!-- Energy Consumption Section -->
+<div class="flex-row p-3 m-6 border rounded-card-sm box-border items-center">
+  <div class="text-lg font-semibold tracking-tight">Energy Consumption</div>
+  <!-- Energy Chart -->
+  <TimeSeriesChart data={temperatureData} class="w-full h-[300px] mt-6" />
 </div>
 
 <h1>Welcome to SvelteKit</h1>
