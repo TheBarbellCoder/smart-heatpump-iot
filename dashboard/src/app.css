@@ -6,14 +6,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@font-face {
-	font-family: "Cal Sans";
-	font-style: normal;
-	font-weight: 600;
-	font-display: swap;
-	src: url("/CalSans-SemiBold.woff2") format("woff2");
-}
-
 :root {
 	/* Colors */
 	--background: hsl(0 0% 100%);
