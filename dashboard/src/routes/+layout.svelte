@@ -1,22 +1,22 @@
 <script>
-  import "../app.css";
+  import '../app.css';
 
-  import { setContext } from "svelte";
-  import IconContext from "phosphor-svelte/lib/IconContext";
-  import { Thermometer } from "phosphor-svelte";
-  import { Button, Label, Switch } from "bits-ui";
+  import { setContext } from 'svelte';
+  import IconContext from 'phosphor-svelte/lib/IconContext';
+  import { Thermometer } from 'phosphor-svelte';
+  import { Button, Label, Switch } from 'bits-ui';
 
   let isChecked = $state(false);
   let isSimulated = $state(true);
 
-  setContext("systemState", {
+  setContext('systemState', {
     getOnOffState: () => isChecked,
-    setOnOffState: (value) => isChecked = value,
-    toggleOnOffState: () => isChecked = !isChecked,
+    setOnOffState: (value) => (isChecked = value),
+    toggleOnOffState: () => (isChecked = !isChecked),
 
     getSimulationState: () => isSimulated,
-    setSimulationState: (value) => isSimulated = value,
-    toggleSimulationState: () => isSimulated = !isSimulated,
+    setSimulationState: (value) => (isSimulated = value),
+    toggleSimulationState: () => (isSimulated = !isSimulated),
   });
 
   let { children } = $props();
@@ -26,7 +26,7 @@
   <div class="flex items-center gap-4">
     <Thermometer weight="fill" size="32" />
     <div class="text-xl tracking-tight font-bold">
-      Heatpump {isSimulated ? "Simulator" : "Dashboard"}
+      Heatpump {isSimulated ? 'Simulator' : 'Dashboard'}
     </div>
   </div>
   <div class="flex items-center gap-y-4 gap-x-6">
@@ -54,9 +54,7 @@
           "
         />
       </Switch.Root>
-      <Label.Root for="on-off" class="text-sm font-medium">{
-        isChecked ? "System On" : "System Off"
-      }</Label.Root>
+      <Label.Root for="on-off" class="text-sm font-medium">{isChecked ? 'System On' : 'System Off'}</Label.Root>
     </div>
     <Button.Root
       class="
@@ -65,8 +63,8 @@
         active:scale-[0.98] active:transition-all disabled:bg-muted
         disabled:text-muted-foreground
       "
-      disabled={!isSimulated}
-    >Restart Simulation</Button.Root>
+      disabled={!isSimulated}>Restart Simulation</Button.Root
+    >
   </div>
 </div>
 
