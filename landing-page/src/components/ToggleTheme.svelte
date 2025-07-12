@@ -34,7 +34,7 @@
   aria-label="Toggle Theme"
 >
   {#if darkMode}
-    <Sun class="h-6 w-6 text-white" />
+    <Sun class="h-6 w-6 text-gray-200" />
   {:else}
     <Moon class="h-6 w-6" />
   {/if}
