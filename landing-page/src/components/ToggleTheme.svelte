@@ -30,7 +30,8 @@
 
 <button
   onclick={toggleTheme}
-  class="inline-flex h-10 w-10 items-center justify-center rounded-lg transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-800"
+  class="inline-flex h-10 w-10 items-center justify-center rounded-lg
+  transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-800"
   aria-label="Toggle Theme"
 >
   {#if darkMode}

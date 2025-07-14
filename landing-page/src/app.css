@@ -1,4 +1,104 @@
 @import 'tailwindcss';
+
 @plugin '@tailwindcss/forms';
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* Define 3-screen breakpoints */
+@theme{
+    /*--breakpoint-*: initial;*/
+    --breakpoint-tablet: 768px;
+    --breakpoint-desktop: 1200px;
+}
+
+:root {
+    /* Mobile defaults */
+    --hero-height: 80vh;
+    --hero-width: 100%;
+    --hero-max-width: none;
+
+}
+
+/* Mobile Portrait */
+@media (orientation: portrait) and (width < 768px) {
+    :root {
+        --hero-height: 70vh;
+        --hero-width: 100%;
+        --hero-max-width: none;
+
+    }
+}
+
+/* Mobile Landscape */
+@media (orientation: landscape) and (768px <= width) and (width < 1024px){
+    :root {
+        --hero-height: 100vh;
+        --hero-width: 100%;
+        --hero-max-width: 640px;
+    }
+}
+
+/* Tablet Portrait */
+@media (orientation: portrait) and (768px <= width) and (width < 1024px) {
+    :root {
+        --hero-height: 70vh;
+        --hero-width: 100%;
+        --hero-max-width: 768px;
+    }
+}
+
+/* Tablet Landscape */
+@media (orientation: landscape) and (width >= 1024px) and (width < 1200px) {
+    :root {
+        --hero-height: 80vh;
+        --hero-width: 100%;
+        --hero-max-width: 896px;
+    }
+}
+
+/* Desktop Portrait */
+@media (orientation: portrait) and (1024px <=width ) {
+    :root {
+        --hero-height: 40vh;
+        --hero-width: 100%;
+        --hero-max-width: 1024px;
+    }
+}
+
+
+/* Desktop Landscape */
+@media (orientation: landscape) and (1200px <=width ) {
+    :root {
+        --hero-height: 80vh;
+        --hero-width: 100%;
+        --hero-max-width: 1200px;
+    }
+}
+
+.h-hero {
+    height: var(--hero-height);
+}
+
+.w-hero {
+    width: var(--hero-width);
+    max-width: var(--hero-max-width);
+}
+
+.hero-container {
+    height: var(--hero-height);
+    width: var(--hero-width);
+    max-width: var(--hero-max-width);
+    @apply mx-auto;
+}
+
+@media (orientation: portrait) {
+    .aspect-orientation {
+        aspect-ratio: 1/1;
+    }
+}
+
+@media (orientation: landscape) {
+    .aspect-orientation {
+        aspect-ratio: 3/2;
+    }
+}

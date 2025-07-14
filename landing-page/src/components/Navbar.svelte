@@ -13,7 +13,7 @@
     alt=""
   />
   <!-- Add menu items here-->
-  <div class="flex items-center justify-center gap-x-5">
+  <div class="tablet:flex hidden items-center justify-center gap-x-5">
     <ToggleTheme />
     <Button variant="accent">Join the Waitlist</Button>
   </div>
