@@ -2,103 +2,57 @@
 
 @plugin '@tailwindcss/forms';
 
+@font-face {
+    font-family: 'Geist Sans';
+    src: url('/node_modules/@fontsource/geist-sans/files/geist-sans-latin-400-normal.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist Mono';
+    src: url('/node_modules/@fontsource/geist-mono/files/geist-mono-latin-400-normal.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Define 3-screen breakpoints */
 @theme{
-    /*--breakpoint-*: initial;*/
-    --breakpoint-tablet: 768px;
-    --breakpoint-desktop: 1200px;
+    --font-geist-sans: 'Geist Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-geist-mono: 'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+
+    --color-color-default: #ffffff;
+    --color-color-secondary: #f9fafb;
+
+    --color-button-default: #1a1a1a;
+    --color-button-hover: #1f1f1f;
+    --color-button-active: #292929;
+
+    --color-foreground-primary: #171717;
+    --color-foreground-secondary: #666666;
+
+    /*--text-button-16--line-height: 24px;*/
+    /*--text-button-16--font-weight: 600;*/
+    /*--text-button-16--letter-spacing: 0px;*/
+    /*--text-button-16: 16px;*/
+
+    /*--text-button-14--line-height: 20px;*/
+    /*--text-button-14--font-weight: 600;*/
+    /*--text-button-14--letter-spacing: 0px;*/
+    /*--text-button-14: 14px;*/
 }
 
-:root {
-    /* Mobile defaults */
-    --hero-height: 80vh;
-    --hero-width: 100%;
-    --hero-max-width: none;
+.dark {
+    --color-color-default: #0a0a0a;
+    --color-color-secondary: #000000;
 
-}
+    --color-button-default: #f2f2f2;
+    --color-button-hover: #ebebeb;
+    --color-button-active: #e6e6e6;
 
-/* Mobile Portrait */
-@media (orientation: portrait) and (width < 768px) {
-    :root {
-        --hero-height: 70vh;
-        --hero-width: 100%;
-        --hero-max-width: none;
-
-    }
-}
-
-/* Mobile Landscape */
-@media (orientation: landscape) and (768px <= width) and (width < 1024px){
-    :root {
-        --hero-height: 100vh;
-        --hero-width: 100%;
-        --hero-max-width: 640px;
-    }
-}
-
-/* Tablet Portrait */
-@media (orientation: portrait) and (768px <= width) and (width < 1024px) {
-    :root {
-        --hero-height: 70vh;
-        --hero-width: 100%;
-        --hero-max-width: 768px;
-    }
-}
-
-/* Tablet Landscape */
-@media (orientation: landscape) and (width >= 1024px) and (width < 1200px) {
-    :root {
-        --hero-height: 80vh;
-        --hero-width: 100%;
-        --hero-max-width: 896px;
-    }
-}
-
-/* Desktop Portrait */
-@media (orientation: portrait) and (1024px <=width ) {
-    :root {
-        --hero-height: 40vh;
-        --hero-width: 100%;
-        --hero-max-width: 1024px;
-    }
-}
-
-
-/* Desktop Landscape */
-@media (orientation: landscape) and (1200px <=width ) {
-    :root {
-        --hero-height: 80vh;
-        --hero-width: 100%;
-        --hero-max-width: 1200px;
-    }
-}
-
-.h-hero {
-    height: var(--hero-height);
-}
-
-.w-hero {
-    width: var(--hero-width);
-    max-width: var(--hero-max-width);
-}
-
-.hero-container {
-    height: var(--hero-height);
-    width: var(--hero-width);
-    max-width: var(--hero-max-width);
-    @apply mx-auto;
-}
-
-@media (orientation: portrait) {
-    .aspect-orientation {
-        aspect-ratio: 1/1;
-    }
-}
-
-@media (orientation: landscape) {
-    .aspect-orientation {
-        aspect-ratio: 3/2;
-    }
+    --color-foreground-primary: #ededed;
+    --color-foreground-secondary: #a0a0a0;
 }
