@@ -4,7 +4,7 @@
 </script>
 
 <div
-  class="fixed top-0 box-border flex w-full items-center justify-between p-6 lg:px-8
+  class="fixed top-0 container box-border flex w-full items-center justify-between p-6 lg:px-8
 "
 >
   <img
