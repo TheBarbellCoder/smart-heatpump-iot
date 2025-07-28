@@ -1,4 +1,4 @@
-<script>
+<script lang="js">
 </script>
 
-<div class="bg-color-default"></div>
+<div class="bg-default"></div>

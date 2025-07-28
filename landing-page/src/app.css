@@ -2,34 +2,49 @@
 
 @plugin '@tailwindcss/forms';
 
+/* geist-sans-latin-500-normal +++ light +++ */
 @font-face {
     font-family: 'Geist Sans';
-    src: url('/node_modules/@fontsource/geist-sans/files/geist-sans-latin-400-normal.woff2') format('woff2');
-    font-weight: 100 900;
     font-style: normal;
     font-display: swap;
+    font-weight: 300;
+    src: url('/node_modules/@fontsource/geist-sans/files/geist-sans-latin-500-normal.woff2') format('woff2'), url('/node_modules/@fontsource/geist-sans/files/geist-sans-latin-500-normal.woff') format('woff');
 }
 
+/* geist-sans-latin-500-normal +++ medium +++ */
 @font-face {
-    font-family: 'Geist Mono';
-    src: url('/node_modules/@fontsource/geist-mono/files/geist-mono-latin-400-normal.woff2') format('woff2');
-    font-weight: 100 900;
+    font-family: 'Geist Sans';
     font-style: normal;
     font-display: swap;
+    font-weight: 500;
+    src: url('/node_modules/@fontsource/geist-sans/files/geist-sans-latin-500-normal.woff2') format('woff2'), url('/node_modules/@fontsource/geist-sans/files/geist-sans-latin-500-normal.woff') format('woff');
+}
+
+/* geist-sans-latin-600-normal +++ semibold +++ */
+@font-face {
+    font-family: 'Geist Sans';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 600;
+    src: url('/node_modules/@fontsource/geist-sans/files/geist-sans-latin-600-normal.woff2') format('woff2'), url('/node_modules/@fontsource/geist-sans/files/geist-sans-latin-600-normal.woff') format('woff');
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme{
-    --font-geist-sans: 'Geist Sans', ui-sans-serif, system-ui, sans-serif;
-    --font-geist-mono: 'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+    --font-geist-sans: 'Geist Sans';
+    /*--font-geist-sans: 'Geist Sans', ui-sans-serif, system-ui, sans-serif;*/
+    /*--font-geist-mono: 'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;*/
+    --color-default: #ffffff;
+    --color-secondary: #f9fafb;
 
-    --color-color-default: #ffffff;
-    --color-color-secondary: #f9fafb;
+    --color-component-default: #f2f2f2;
+    --color-component-hover: #ebebeb;
+    --color-component-active: #e6e6e6;
 
-    --color-button-default: #1a1a1a;
-    --color-button-hover: #1f1f1f;
-    --color-button-active: #292929;
+    --color-border-default: #eaeaea;
+    --color-border-hover: #c9c9c9;
+    --color-border-active: #a8a8a8;
 
     --color-foreground-primary: #171717;
     --color-foreground-secondary: #666666;
@@ -59,64 +74,88 @@
     --text-heading-40--line-height: 48px;
     --text-heading-40--letter-spacing: -0.025em;
 
-    --text-subheading-32: 32px;
-    --text-subheading-32--font-weight: 600;
-    --text-subheading-32--line-height: 40px;
-    --text-subheading-32--letter-spacing: -0.025em;
+    --text-subheading-32-medium: 32px;
+    --text-subheading-32-medium--font-weight: 500;
+    --text-subheading-32-medium--line-height: 40px;
+    --text-subheading-32-medium--letter-spacing: -0.025em;
 
-    --text-subheading-24: 24px;
-    --text-subheading-24--font-weight: 600;
-    --text-subheading-24--line-height: 32px;
-    --text-subheading-24--letter-spacing: -0.025em;
+    --text-subheading-24-medium: 24px;
+    --text-subheading-24-medium--font-weight: 500;
+    --text-subheading-24-medium--line-height: 32px;
+    --text-subheading-24-medium--letter-spacing: -0.025em;
 
-    --text-subheading-20: 20px;
-    --text-subheading-20--font-weight: 600;
-    --text-subheading-20--line-height: 24px;
-    --text-subheading-20--letter-spacing: -0.025em;
+    --text-subheading-20-medium: 20px;
+    --text-subheading-20-medium--font-weight: 500;
+    --text-subheading-20-medium--line-height: 24px;
+    --text-subheading-20-medium--letter-spacing: -0.025em;
 
-    --text-subheading-16: 16px;
-    --text-subheading-16--font-weight: 600;
-    --text-subheading-16--line-height: 24px;
-    --text-subheading-16--letter-spacing: -0.025em;
+    --text-subheading-16-medium: 16px;
+    --text-subheading-16-medium--font-weight: 500;
+    --text-subheading-16-medium--line-height: 24px;
+    --text-subheading-16-medium--letter-spacing: -0.025em;
 
-    --text-button-16: 16px;
-    --text-button-16--font-weight: 600;
-    --text-button-16--line-height: 24px;
-    --text-button-16--letter-spacing: -0.025em;
+    --text-button-16-medium: 16px;
+    --text-button-16-medium--font-weight: 500;
+    --text-button-16-medium--line-height: 24px;
+    --text-button-16-medium--letter-spacing: 0.025em;
 
-    --text-button-14: 14px;
-    --text-button-14--font-weight: 600;
-    --text-button-14--line-height: 20px;
-    --text-button-14--letter-spacing: -0.025em;
+    --text-button-14-medium: 14px;
+    --text-button-14-medium--font-weight: 500;
+    --text-button-14-medium--line-height: 20px;
+    --text-button-14-medium--letter-spacing: 0.025em;
 
-    --text-copy-24: 24px;
-    --text-copy-24--font-weight: 400;
-    --text-copy-24--line-height: 32px;
-    --text-copy-24--letter-spacing: 0em;
+    --text-copy-24-semibold: 24px;
+    --text-copy-24-semibold--font-weight: 600;
+    --text-copy-24-semibold--line-height: 32px;
+    --text-copy-24-semibold--letter-spacing: 0em;
 
-    --text-copy-20: 20px;
-    --text-copy-20--font-weight: 400;
-    --text-copy-20--line-height: 24px;
-    --text-copy-20--letter-spacing: 0em;
+    --text-copy-20-semibold: 20px;
+    --text-copy-20-semibold--font-weight: 600;
+    --text-copy-20-semibold--line-height: 24px;
+    --text-copy-20-semibold--letter-spacing: 0em;
 
-    --text-copy-18: 18px;
-    --text-copy-18--font-weight: 400;
-    --text-copy-18--line-height: 24px;
-    --text-copy-18--letter-spacing: 0em;
+    --text-copy-18-semibold: 18px;
+    --text-copy-18-semibold--font-weight: 600;
+    --text-copy-18-semibold--line-height: 24px;
+    --text-copy-18-semibold--letter-spacing: 0em;
 
-    --text-copy-16: 16px;
-    --text-copy-16--font-weight: 400;
-    --text-copy-16--line-height: 24px;
-    --text-copy-16--letter-spacing: 0em;
+    --text-copy-16-semibold: 16px;
+    --text-copy-16-semibold--font-weight: 600;
+    --text-copy-16-semibold--line-height: 24px;
+    --text-copy-16-semibold--letter-spacing: 0em;
+
+    --text-copy-24-light: 24px;
+    --text-copy-24-light--font-weight: 300;
+    --text-copy-24-light--line-height: 32px;
+    --text-copy-24-light--letter-spacing: 0em;
+
+    --text-copy-20-light: 20px;
+    --text-copy-20-light--font-weight: 300;
+    --text-copy-20-light--line-height: 24px;
+    --text-copy-20-light--letter-spacing: 0em;
+
+    --text-copy-18-light: 18px;
+    --text-copy-18-light--font-weight: 300;
+    --text-copy-18-light--line-height: 24px;
+    --text-copy-18-light--letter-spacing: 0em;
+
+    --text-copy-16-light: 16px;
+    --text-copy-16-light--font-weight: 300;
+    --text-copy-16-light--line-height: 24px;
+    --text-copy-16-light--letter-spacing: 0em;
 }
 
 .dark {
-    --color-color-default: #0a0a0a;
-    --color-color-secondary: #000000;
+    --color-default: #0a0a0a;
+    --color-secondary: #000000;
 
-    --color-button-default: #f2f2f2;
-    --color-button-hover: #ebebeb;
-    --color-button-active: #e6e6e6;
+    --color-component-default: #1a1a1a;
+    --color-component-hover: #1f1f1f;
+    --color-component-active: #292929;
+
+    --color-border-default: #2e2e2e;
+    --color-border-hover: #454545;
+    --color-border-active: #878787;
 
     --color-foreground-primary: #ededed;
     --color-foreground-secondary: #a0a0a0;

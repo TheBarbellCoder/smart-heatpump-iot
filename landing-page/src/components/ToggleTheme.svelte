@@ -23,14 +23,13 @@
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     darkMode = savedTheme === 'dark' || prefersDark;
-    console.log(darkMode);
     updateTheme();
   });
 </script>
 
 <button
   onclick={toggleTheme}
-  class="text-foreground-primary hover:text-color-default active:text-color-default hover:bg-button-hover active:bg-button-active inline-flex h-10 w-10
+  class="text-foreground-primary hover:bg-component-hover active:bg-component-active inline-flex h-10 w-10
   items-center justify-center rounded-full transition-colors duration-300"
   aria-label="Toggle Theme"
 >
