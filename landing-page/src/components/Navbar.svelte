@@ -4,7 +4,7 @@
 </script>
 
 <div
-  class="bg-default border-b-border-active fixed top-0 z-50 container box-border flex w-full items-center justify-between border-b p-6 lg:p-8
+  class="bg-default fixed top-0 z-50 container box-border flex w-full items-center justify-between border-b p-6 lg:p-8
 "
 >
   <img
@@ -13,10 +13,10 @@
     alt=""
   />
   <!-- Add menu items here-->
-  <div class="hidden items-center justify-center gap-6 landscape:flex">
+  <div class="flex items-center justify-center gap-6">
     <ToggleTheme />
     <Button
-      class="bg-component-default hover:bg-component-hover active:bg-component-active text-foreground-primary"
+      class="bg-component-default  hover:bg-component-hover active:bg-component-active text-foreground-primary hidden md:block"
       >Join the Waitlist
     </Button>
   </div>

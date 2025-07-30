@@ -4,7 +4,7 @@
 </script>
 
 <div
-  class="mt-24 box-border flex h-auto min-h-[90vh] flex-col items-center justify-center gap-14 p-6 lg:p-8"
+  class="mt-24 box-border flex h-auto min-h-[80vh] flex-col items-center justify-center gap-14 p-6 lg:p-8"
 >
   <div class="flex flex-col items-start justify-center gap-7 landscape:items-center">
     <div
@@ -31,17 +31,19 @@
       >Join the Waitlist
     </Button>
     <Button
-      class="text-foreground-secondary hover:text-foreground-primary active:text-foreground-primary items-center justify-center gap-1"
+      class="text-foreground-secondary hover:text-foreground-primary active:text-foreground-primary inline-flex items-center justify-center gap-1"
     >
       <div>Learn more</div>
       <ArrowRight weight="regular" size="16" />
     </Button>
   </div>
   <!-- Placeholder for the simulator image -->
-  <div class="bg-foreground-secondary aspect-square w-full 2xl:hidden landscape:aspect-video"></div>
+  <div
+    class="bg-foreground-secondary hidden aspect-square w-full 2xl:hidden landscape:aspect-video"
+  ></div>
 </div>
 
 <!-- Placeholder for the simulator image -->
 <div
-  class="bg-foreground-secondary hidden aspect-square w-full p-6 lg:p-8 2xl:block landscape:aspect-video"
+  class="bg-foreground-secondary container box-border aspect-square p-6 lg:p-8 landscape:aspect-video"
 ></div>

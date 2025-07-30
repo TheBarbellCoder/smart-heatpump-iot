@@ -3,9 +3,9 @@
 </script>
 
 <div
-  class="box-border flex h-auto min-h-[90vh] flex-col items-center justify-center gap-14 p-6 lg:p-8"
+  class="box-border flex h-auto min-h-[80vh] flex-col items-center justify-center gap-14 p-6 lg:p-8"
 >
-  <div class="flex flex-col items-start justify-center gap-7 landscape:items-center">
+  <div class="flex w-full flex-col items-start justify-center gap-7 landscape:items-center">
     <div
       class="text-copy-16-semibold md:text-copy-18-semibold lg:text-copy-20-semibold text-foreground-primary font-geist-sans uppercase"
     >
@@ -20,15 +20,13 @@
 
   <!-- Features -->
   <!-- Feature: Pinpoint Accuracy -->
-  <div class="grid grid-cols-1 gap-7 lg:w-5xl lg:grid-cols-2 xl:w-6xl 2xl:gap-y-21">
+  <div class="container box-border grid grid-cols-1 gap-7 lg:grid-cols-2">
     <div
-      class="items-top bg-component-default flex justify-start gap-5 rounded-3xl p-6 lg:p-8 landscape:items-center"
+      class="bg-component-default box-border flex items-center justify-start gap-5 rounded-3xl p-6 lg:p-8"
     >
-      <Target
-        size="2em"
-        weight="duotone"
-        class="text-foreground-primary text-3xl landscape:text-lg"
-      />
+      <div class="flex h-6 w-6 items-center justify-center">
+        <Target size={24} weight="duotone" class="text-foreground-primary" />
+      </div>
       <div
         class="text-foreground-primary text-copy-16-light md:text-copy-18-light lg:text-copy-20-light"
       >
@@ -40,14 +38,10 @@
     </div>
 
     <!-- Feature: Lightning Fast -->
-    <div
-      class="items-top bg-component-default flex justify-start gap-5 rounded-3xl p-6 lg:p-8 landscape:items-center"
-    >
-      <Lightning
-        size="2em"
-        weight="duotone"
-        class="text-foreground-primary text-3xl landscape:text-lg"
-      />
+    <div class="bg-component-default flex items-center justify-start gap-5 rounded-3xl p-6 lg:p-8">
+      <div class="flex h-6 w-6 items-center justify-center">
+        <Lightning size={24} weight="duotone" class="text-foreground-primary" />
+      </div>
       <div
         class="text-foreground-primary text-copy-16-light md:text-copy-18-light lg:text-copy-20-light"
       >
@@ -59,14 +53,10 @@
     </div>
 
     <!-- Feature: Fully Customizable -->
-    <div
-      class="items-top bg-component-default flex justify-start gap-5 rounded-3xl p-6 lg:p-8 landscape:items-center"
-    >
-      <Sliders
-        size="2em"
-        weight="duotone"
-        class="text-foreground-primary text-3xl landscape:text-lg"
-      />
+    <div class="bg-component-default flex items-center justify-start gap-5 rounded-3xl p-6 lg:p-8">
+      <div class="flex h-6 w-6 items-center justify-center">
+        <Sliders size={24} weight="duotone" class="text-foreground-primary" />
+      </div>
       <div
         class="text-foreground-primary text-copy-16-light md:text-copy-18-light lg:text-copy-20-light"
       >
@@ -78,14 +68,10 @@
     </div>
 
     <!-- Feature: Instant Insights -->
-    <div
-      class="items-top bg-component-default flex justify-start gap-5 rounded-3xl p-6 lg:p-8 landscape:items-center"
-    >
-      <ChartLine
-        size="2em"
-        weight="duotone"
-        class="text-foreground-primary text-3xl landscape:text-lg"
-      />
+    <div class="bg-component-default flex items-center justify-start gap-5 rounded-3xl p-6 lg:p-8">
+      <div class="flex h-6 w-6 items-center justify-center">
+        <ChartLine size={26} weight="duotone" class="text-foreground-primary" />
+      </div>
       <div
         class="text-foreground-primary text-copy-16-light md:text-copy-18-light lg:text-copy-20-light
 "
