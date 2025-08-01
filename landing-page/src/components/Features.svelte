@@ -3,16 +3,16 @@
 </script>
 
 <div
-  class="box-border flex h-auto min-h-[80vh] flex-col items-center justify-center gap-14 p-6 lg:p-8"
+  class="box-border flex flex-col items-center justify-center gap-14 p-6 py-[100px] lg:p-8 lg:py-[100px]"
 >
-  <div class="flex w-full flex-col items-start justify-center gap-7 landscape:items-center">
+  <div class="flex w-full flex-col items-start justify-center gap-7 md:items-center">
     <div
       class="text-copy-16-semibold md:text-copy-18-semibold lg:text-copy-20-semibold text-foreground-primary font-geist-sans uppercase"
     >
       Transform Your Workflow
     </div>
     <div
-      class="text-heading-40 md:text-heading-48 lg:text-heading-56 text-foreground-primary font-geist-sans text-start landscape:text-center"
+      class="text-heading-40 md:text-heading-48 lg:text-heading-56 text-foreground-primary font-geist-sans text-start md:text-center"
     >
       Design Smarter, Not Harder
     </div>

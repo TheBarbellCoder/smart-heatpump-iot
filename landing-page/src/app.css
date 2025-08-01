@@ -74,6 +74,11 @@
     --text-heading-40--line-height: 48px;
     --text-heading-40--letter-spacing: -0.025em;
 
+    --text-subheading-32-semibold: 32px;
+    --text-subheading-32-semibold--font-weight: 600;
+    --text-subheading-32-semibold--line-height: 40px;
+    --text-subheading-32-semibold--letter-spacing: -0.025em;
+
     --text-subheading-32-medium: 32px;
     --text-subheading-32-medium--font-weight: 500;
     --text-subheading-32-medium--line-height: 40px;
@@ -93,6 +98,11 @@
     --text-subheading-16-medium--font-weight: 500;
     --text-subheading-16-medium--line-height: 24px;
     --text-subheading-16-medium--letter-spacing: -0.025em;
+
+    --text-button-18-medium: 18px;
+    --text-button-18-medium--font-weight: 500;
+    --text-button-18-medium--line-height: 26px;
+    --text-button-18-medium--letter-spacing: 0.025em;
 
     --text-button-16-medium: 16px;
     --text-button-16-medium--font-weight: 500;

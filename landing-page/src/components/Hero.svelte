@@ -4,28 +4,28 @@
 </script>
 
 <div
-  class="mt-24 box-border flex h-auto min-h-[80vh] flex-col items-center justify-center gap-14 p-6 lg:p-8"
+  class=" mt-24 box-border flex flex-col items-center justify-center gap-14 p-6 py-[100px] lg:p-8 lg:py-[100px]"
 >
-  <div class="flex flex-col items-start justify-center gap-7 landscape:items-center">
+  <div class="flex flex-col items-start justify-center gap-7 md:items-center">
     <div
       class="text-copy-16-semibold md:text-copy-18-semibold lg:text-copy-20-semibold text-foreground-primary font-geist-sans uppercase"
     >
       Cut Design Time by 50%
     </div>
     <div
-      class="text-heading-48 md:text-heading-64 lg:text-heading-72 text-foreground-primary font-geist-sans text-start landscape:text-center"
+      class="text-heading-48 md:text-heading-64 lg:text-heading-72 text-foreground-primary font-geist-sans text-start md:text-center"
     >
       Stop Struggling with Heat Pump Designs
     </div>
   </div>
 
   <div
-    class="text-subheading-20-medium md:text-subheading-24-medium lg:text-subheading-32-medium text-foreground-secondary font-geist-sans landscape:text-center"
+    class="text-subheading-20-medium md:text-subheading-24-medium lg:text-subheading-32-medium text-foreground-secondary font-geist-sans md:text-center"
   >
     Build and optimize systems faster with our Python-based simulator. Made for HVAC pros and
     engineers.
   </div>
-  <div class="flex gap-7 self-start landscape:self-center">
+  <div class="flex gap-7 self-start md:self-center">
     <Button
       class="bg-component-default hover:bg-component-hover active:bg-component-active text-foreground-primary"
       >Join the Waitlist
@@ -44,6 +44,7 @@
 </div>
 
 <!-- Placeholder for the simulator image -->
+<!-- TODO Change margins to padding once you insert the image -->
 <div
-  class="bg-foreground-secondary container box-border aspect-square p-6 lg:p-8 landscape:aspect-video"
+  class="bg-foreground-secondary container my-[100px] box-border aspect-square p-6 lg:my-[100px] lg:p-8 landscape:aspect-video"
 ></div>

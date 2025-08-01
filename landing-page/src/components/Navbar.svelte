@@ -4,7 +4,7 @@
 </script>
 
 <div
-  class="bg-default fixed top-0 z-50 container box-border flex w-full items-center justify-between border-b p-6 lg:p-8
+  class="bg-default border-b-border-hover fixed top-0 z-50 container box-border flex w-full items-center justify-between border-b p-6 lg:p-8
 "
 >
   <img
