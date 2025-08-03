@@ -12,7 +12,8 @@
     Heat pump design shouldn’t be a grind. We’re making it fast, precise, and painless. Join us.
   </div>
   <Button
-    class="bg-component-default hover:bg-component-hover active:bg-component-active text-foreground-primary"
+    url="/waitlist"
+    class="bg-component-default hover:bg-component-hover active:bg-component-active text-foreground-primary rounded-full p-3"
     >Join the Waitlist
   </Button>
 </div>
