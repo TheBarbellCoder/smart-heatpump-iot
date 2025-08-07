@@ -29,7 +29,7 @@
 
 <button
   onclick={toggleTheme}
-  class="text-foreground-primary hover:bg-component-hover active:bg-component-active inline-flex h-10 w-10
+  class="hover:bg-component-hover active:bg-component-active inline-flex h-10 w-10
   items-center justify-center rounded-full transition-colors duration-300"
   aria-label="Toggle Theme"
 >

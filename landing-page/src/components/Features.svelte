@@ -6,14 +6,10 @@
   class="box-border flex flex-col items-center justify-center gap-14 p-6 py-[100px] lg:p-8 lg:py-[100px]"
 >
   <div class="flex w-full flex-col items-start justify-center gap-7 md:items-center">
-    <div
-      class="text-copy-16-semibold md:text-copy-18-semibold lg:text-copy-20-semibold text-foreground-primary font-geist-sans uppercase"
-    >
+    <div class="text-copy-16-semibold md:text-copy-18-semibold lg:text-copy-20-semibold uppercase">
       Transform Your Workflow
     </div>
-    <div
-      class="text-heading-40 md:text-heading-48 lg:text-heading-56 text-foreground-primary font-geist-sans text-start md:text-center"
-    >
+    <div class="text-heading-40 md:text-heading-48 lg:text-heading-56 text-start md:text-center">
       Design Smarter, Not Harder
     </div>
   </div>
@@ -25,11 +21,9 @@
       class="bg-component-default box-border flex items-center justify-start gap-5 rounded-3xl p-6 lg:p-8"
     >
       <div class="flex h-6 w-6 items-center justify-center">
-        <Target size={24} weight="duotone" class="text-foreground-primary" />
+        <Target size={24} weight="duotone" class="" />
       </div>
-      <div
-        class="text-foreground-primary text-copy-16-light md:text-copy-18-light lg:text-copy-20-light"
-      >
+      <div class="text-copy-16-light md:text-copy-18-light lg:text-copy-20-light">
         <span class="text-copy-16-semibold md:text-copy-18-semibold lg:text-copy-20-semibold"
           >Pinpoint Accuracy.</span
         >
@@ -40,11 +34,9 @@
     <!-- Feature: Lightning Fast -->
     <div class="bg-component-default flex items-center justify-start gap-5 rounded-3xl p-6 lg:p-8">
       <div class="flex h-6 w-6 items-center justify-center">
-        <Lightning size={24} weight="duotone" class="text-foreground-primary" />
+        <Lightning size={24} weight="duotone" class="" />
       </div>
-      <div
-        class="text-foreground-primary text-copy-16-light md:text-copy-18-light lg:text-copy-20-light"
-      >
+      <div class="text-copy-16-light md:text-copy-18-light lg:text-copy-20-light">
         <span class="text-copy-16-semibold md:text-copy-18-semibold lg:text-copy-20-semibold">
           Lightning Fast.</span
         >
@@ -55,11 +47,9 @@
     <!-- Feature: Fully Customizable -->
     <div class="bg-component-default flex items-center justify-start gap-5 rounded-3xl p-6 lg:p-8">
       <div class="flex h-6 w-6 items-center justify-center">
-        <Sliders size={24} weight="duotone" class="text-foreground-primary" />
+        <Sliders size={24} weight="duotone" class="" />
       </div>
-      <div
-        class="text-foreground-primary text-copy-16-light md:text-copy-18-light lg:text-copy-20-light"
-      >
+      <div class="text-copy-16-light md:text-copy-18-light lg:text-copy-20-light">
         <span class="text-copy-16-semibold md:text-copy-18-semibold lg:text-copy-20-semibold">
           Fully Customizable.</span
         >
@@ -70,10 +60,10 @@
     <!-- Feature: Instant Insights -->
     <div class="bg-component-default flex items-center justify-start gap-5 rounded-3xl p-6 lg:p-8">
       <div class="flex h-6 w-6 items-center justify-center">
-        <ChartLine size={26} weight="duotone" class="text-foreground-primary" />
+        <ChartLine size={26} weight="duotone" class="" />
       </div>
       <div
-        class="text-foreground-primary text-copy-16-light md:text-copy-18-light lg:text-copy-20-light
+        class="text-copy-16-light md:text-copy-18-light lg:text-copy-20-light
 "
       >
         <span class="text-copy-16-semibold md:text-copy-18-semibold lg:text-copy-20-semibold">

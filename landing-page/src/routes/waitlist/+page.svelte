@@ -43,10 +43,11 @@
         class="border-border-default bg-component-default checked:bg-foreground-secondary focus:ring-foreground-secondary focus:ring-offset-component-default h-5 w-5 appearance-none rounded border-2 checked:border-transparent focus:ring-1 focus:ring-offset-2"
         name="consent"
       />
-      <div class="text-copy-16-light font-geist-sans text-foreground-secondary">
+      <div class="text-copy-16-light text-foreground-secondary">
         I agree to receive ThermaSim updates and consent to the <a
           href="/privacy"
-          class="underline underline-offset-6">privacy policy</a
+          class="hover:text-foreground-primary active:text-foreground-primary underline underline-offset-6 transition-colors duration-300"
+          >privacy policy</a
         >.
       </div>
     </label>
@@ -58,7 +59,7 @@
     </div>
     <button
       type="submit"
-      class="bg-component-default hover:bg-component-hover active:bg-component-active text-foreground-primary text-button-14-medium lg:text-button-16-medium font-geist-sans rounded-full p-3"
+      class="bg-component-default hover:bg-component-hover active:bg-component-active text-button-14-medium lg:text-button-16-medium font-geist-sans rounded-full p-3"
       >Sign Up
     </button>
   </form>

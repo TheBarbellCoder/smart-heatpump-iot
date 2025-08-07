@@ -7,14 +7,10 @@
   class="mt-24 box-border flex flex-col items-center justify-center gap-14 p-6 py-[100px] lg:mt-28 lg:p-8 lg:py-[100px]"
 >
   <div class="flex flex-col items-start justify-center gap-7 md:items-center">
-    <div
-      class="text-copy-16-semibold md:text-copy-18-semibold lg:text-copy-20-semibold text-foreground-primary font-geist-sans uppercase"
-    >
+    <div class="text-copy-16-semibold md:text-copy-18-semibold lg:text-copy-20-semibold uppercase">
       Cut Design Time by 50%
     </div>
-    <div
-      class="text-heading-48 md:text-heading-64 lg:text-heading-72 text-foreground-primary font-geist-sans text-start md:text-center"
-    >
+    <div class="text-heading-48 md:text-heading-64 lg:text-heading-72 text-start md:text-center">
       Stop Struggling with Heat Pump Designs
     </div>
   </div>
@@ -28,7 +24,7 @@
   <div class="flex gap-7 self-start md:self-center">
     <Button
       url="/waitlist"
-      class="bg-component-default hover:bg-component-hover active:bg-component-active text-foreground-primary rounded-full p-3"
+      class="bg-component-default hover:bg-component-hover active:bg-component-active rounded-full p-3"
       >Join the Waitlist
     </Button>
     <Button

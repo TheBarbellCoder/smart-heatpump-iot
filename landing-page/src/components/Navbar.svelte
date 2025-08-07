@@ -1,6 +1,12 @@
 <script lang="js">
+  import { page } from '$app/stores';
   import Button from './Button.svelte';
   import ToggleTheme from './ToggleTheme.svelte';
+
+  // Change CTA button based on the current page
+  const isWaitlistPage = $derived($page.url.pathname === '/waitlist');
+  const buttonUrl = $derived(isWaitlistPage ? '/' : '/waitlist');
+  const buttonText = $derived(isWaitlistPage ? 'Back To Home' : 'Join the Waitlist');
 </script>
 
 <div
@@ -27,18 +33,16 @@
         </clipPath>
       </defs>
     </svg>
-    <div class="font-geist-sans text-subheading-20-medium lg:text-subheading-32-medium">
-      ThermaSim
-    </div>
+    <div class="text-subheading-20-medium lg:text-subheading-32-medium">ThermaSim</div>
   </a>
 
   <!-- Add menu items here-->
   <div class="flex items-center justify-center gap-6">
     <ToggleTheme />
     <Button
-      url="/waitlist"
-      class="bg-component-default  hover:bg-component-hover active:bg-component-active text-foreground-primary hidden rounded-full p-3 md:block"
-      >Join the Waitlist
+      url={buttonUrl}
+      class="bg-component-default  hover:bg-component-hover active:bg-component-active hidden rounded-full p-3 md:block"
+      >{buttonText}
     </Button>
   </div>
 </div>
