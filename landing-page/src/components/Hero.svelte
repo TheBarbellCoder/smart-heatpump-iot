@@ -8,18 +8,18 @@
 >
   <div class="flex flex-col items-start justify-center gap-7 md:items-center">
     <div class="text-copy-16-semibold md:text-copy-18-semibold lg:text-copy-20-semibold uppercase">
-      Cut Design Time by 50%
+      No More Slow Design Cycles
     </div>
     <div class="text-heading-48 md:text-heading-64 lg:text-heading-72 text-start md:text-center">
-      Stop Struggling with Heat Pump Designs
+      Simplify Heat Pump Design with Precision
     </div>
   </div>
 
   <div
     class="text-subheading-20-medium md:text-subheading-24-medium lg:text-subheading-32-medium text-foreground-secondary font-geist-sans md:text-center"
   >
-    Build and optimize systems faster with our Python-based simulator. Made for HVAC pros and
-    engineers.
+    ThermaSim streamlines complex calculations for fast and accurate designs &mdash; tailored to
+    HVAC pros and engineers.
   </div>
   <div class="flex gap-7 self-start md:self-center">
     <Button
@@ -27,12 +27,12 @@
       class="bg-component-default hover:bg-component-hover active:bg-component-active rounded-full p-3"
       >Join the Waitlist
     </Button>
-    <Button
-      class="text-foreground-secondary hover:text-foreground-primary active:text-foreground-primary inline-flex items-center justify-center gap-1 rounded-full p-3"
-    >
-      <div>Learn more</div>
-      <ArrowRight weight="regular" size="16" />
-    </Button>
+    <!--    <Button-->
+    <!--      class="text-foreground-secondary hover:text-foreground-primary active:text-foreground-primary inline-flex items-center justify-center gap-1 rounded-full p-3"-->
+    <!--    >-->
+    <!--      <div>Learn more</div>-->
+    <!--      <ArrowRight weight="regular" size="16" />-->
+    <!--    </Button>-->
   </div>
 </div>
 

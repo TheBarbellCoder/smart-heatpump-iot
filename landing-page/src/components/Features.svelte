@@ -7,15 +7,15 @@
 >
   <div class="flex w-full flex-col items-start justify-center gap-7 md:items-center">
     <div class="text-copy-16-semibold md:text-copy-18-semibold lg:text-copy-20-semibold uppercase">
-      Transform Your Workflow
+      Work Faster, Smarter
     </div>
     <div class="text-heading-40 md:text-heading-48 lg:text-heading-56 text-start md:text-center">
-      Design Smarter, Not Harder
+      Solve Design Challenges Effortlessly
     </div>
   </div>
 
   <!-- Features -->
-  <!-- Feature: Pinpoint Accuracy -->
+  <!-- Feature: Accurate Simulations -->
   <div class="container box-border grid grid-cols-1 gap-7 lg:grid-cols-2">
     <div
       class="bg-component-default box-border flex items-center justify-start gap-5 rounded-3xl p-6 lg:p-8"
@@ -25,39 +25,39 @@
       </div>
       <div class="text-copy-16-light md:text-copy-18-light lg:text-copy-20-light">
         <span class="text-copy-16-semibold md:text-copy-18-semibold lg:text-copy-20-semibold"
-          >Pinpoint Accuracy.</span
+          >Accurate Simulations.</span
         >
-        Simulate with 99% precision—no manual math needed.
+        Achieve 99% accuracy without manual effort.
       </div>
     </div>
 
-    <!-- Feature: Lightning Fast -->
+    <!-- Feature: Faster Workflow -->
     <div class="bg-component-default flex items-center justify-start gap-5 rounded-3xl p-6 lg:p-8">
       <div class="flex h-6 w-6 items-center justify-center">
         <Lightning size={24} weight="duotone" class="" />
       </div>
       <div class="text-copy-16-light md:text-copy-18-light lg:text-copy-20-light">
         <span class="text-copy-16-semibold md:text-copy-18-semibold lg:text-copy-20-semibold">
-          Lightning Fast.</span
+          Faster Workflow.</span
         >
         Cut design time by up to 50% with automated tools.
       </div>
     </div>
 
-    <!-- Feature: Fully Customizable -->
+    <!-- Feature: Flexible Settings -->
     <div class="bg-component-default flex items-center justify-start gap-5 rounded-3xl p-6 lg:p-8">
       <div class="flex h-6 w-6 items-center justify-center">
         <Sliders size={24} weight="duotone" class="" />
       </div>
       <div class="text-copy-16-light md:text-copy-18-light lg:text-copy-20-light">
         <span class="text-copy-16-semibold md:text-copy-18-semibold lg:text-copy-20-semibold">
-          Fully Customizable.</span
+          Flexible Settings.</span
         >
-        Tweak refrigerants and settings to fit your project.
+        Customise refrigerants and parameters for any project.
       </div>
     </div>
 
-    <!-- Feature: Instant Insights -->
+    <!-- Feature: Clear Data -->
     <div class="bg-component-default flex items-center justify-start gap-5 rounded-3xl p-6 lg:p-8">
       <div class="flex h-6 w-6 items-center justify-center">
         <ChartLine size={26} weight="duotone" class="" />
@@ -67,8 +67,9 @@
 "
       >
         <span class="text-copy-16-semibold md:text-copy-18-semibold lg:text-copy-20-semibold">
-          Instant Insights.
-        </span> Visualize CoP, energy use, and more in real-time.
+          Clear Data.
+        </span>
+        Access CoP and energy metrics instantly.
       </div>
     </div>
   </div>

@@ -9,7 +9,8 @@
     class="text-subheading-32-semibold md:text-heading-40 lg:text-heading-48
      text-center"
   >
-    Heat pump design shouldn’t be a grind. We’re making it fast, precise, and painless. Join us.
+    Complex heat pump design shouldn’t slow things down. ThermaSim delivers speed, precision, and
+    simplicity.
   </div>
   <Button
     url="/waitlist"
