@@ -1,5 +1,35 @@
 <script lang="js">
+  import { page } from '$app/stores';
+  const siteName = 'ThermaSim';
+  const title = `Privacy Policy — ${siteName}`;
+  const description =
+    'Read the ThermaSim Privacy Policy: GDPR-compliant handling of your email and consent for the waitlist. Learn what we collect, why, and your rights.';
+  const canonical = $derived(
+    $page.url && $page.url.origin
+      ? `${$page.url.origin}${$page.url.pathname}`
+      : ($page.url?.pathname ?? '/privacy')
+  );
+  // TODO Set ogImage to the snapshot of the dashboard.
+  const ogImage = $derived(
+    $page.url && $page.url.origin ? `${$page.url.origin}/ThermaSim.svg` : '/ThermaSim.svg'
+  );
 </script>
+
+<svelte:head>
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta property="og:site_name" content={siteName} />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImage} />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+  <link rel="canonical" href={canonical} />
+</svelte:head>
 
 <div
   class="mt-24 box-border flex flex-col items-center justify-center gap-14 p-6 py-[100px] lg:mt-28 lg:p-8 lg:py-[100px]"

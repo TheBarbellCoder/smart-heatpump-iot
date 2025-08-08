@@ -1,8 +1,39 @@
 <script lang="js">
   import { CaretLineRight } from 'phosphor-svelte';
+  import { page } from '$app/stores';
 
   let hasConsented = $state(false);
+
+  const siteName = 'ThermaSim';
+  const title = `Join the ${siteName} Waitlist — Early Access to Precision Heat Pump Design`;
+  const description =
+    'Join the ThermaSim waitlist to be first in line for 99% accurate simulations, faster workflows, flexible refrigerants, and instant CoP/energy insights.';
+  const canonical = $derived(
+    $page.url && $page.url.origin
+      ? `${$page.url.origin}${$page.url.pathname}`
+      : ($page.url?.pathname ?? '/waitlist')
+  );
+  // TODO Set ogImage to the snapshot of the dashboard.
+  const ogImage = $derived(
+    $page.url && $page.url.origin ? `${$page.url.origin}/ThermaSim.svg` : '/ThermaSim.svg'
+  );
 </script>
+
+<svelte:head>
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta property="og:site_name" content={siteName} />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImage} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+  <link rel="canonical" href={canonical} />
+</svelte:head>
 
 <div
   class="mt-24 box-border flex min-h-[80vh] flex-col items-center justify-center gap-14 p-6 py-[100px] lg:p-8 lg:py-[100px]"
