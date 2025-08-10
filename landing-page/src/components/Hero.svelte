@@ -4,22 +4,22 @@
 </script>
 
 <div
-  class="mt-24 box-border flex flex-col items-center justify-center gap-12 p-6 py-[100px] lg:mt-28 lg:p-8 lg:py-[100px]"
+  class="mt-24 box-border flex flex-col items-center justify-center gap-12 p-6 py-[50px] lg:mt-28 lg:p-8 lg:py-[100px]"
 >
   <div class="text-copy-16-semibold md:text-copy-18-semibold lg:text-copy-20-semibold uppercase">
     No More Slow Design Cycles
   </div>
-  <div class="text-heading-48 md:text-heading-64 lg:text-heading-72 text-start md:text-center">
+  <div class="text-heading-48 md:text-heading-64 lg:text-heading-72 text-center">
     Simplify Heat Pump Design with Precision
   </div>
 
   <div
-    class="text-subheading-20-medium md:text-subheading-24-medium lg:text-subheading-32-medium text-foreground-secondary font-geist-sans md:text-center"
+    class="text-subheading-20-medium md:text-subheading-24-medium lg:text-subheading-32-medium text-foreground-secondary font-geist-sans text-center"
   >
     ThermaSim streamlines complex calculations for fast and accurate designs &mdash; tailored to
     HVAC pros and engineers.
   </div>
-  <div class="flex gap-7 self-start md:self-center">
+  <div class="flex gap-7">
     <Button
       url="/waitlist"
       class="bg-component-default hover:bg-component-hover active:bg-component-active rounded-full p-3"
@@ -30,7 +30,7 @@
 
 <!-- Placeholder for the simulator image -->
 <div
-  class="container box-border flex aspect-square items-center justify-center rounded-lg p-6 py-[100px] lg:p-8 lg:py-[100px] landscape:aspect-video"
+  class="container box-border flex aspect-square items-center justify-center rounded-lg p-6 py-[50px] lg:p-8 lg:py-[100px]"
 >
   <!-- Light mode image -->
   {#if theme.isLight}

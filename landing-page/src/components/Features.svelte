@@ -3,18 +3,18 @@
 </script>
 
 <div
-  class="box-border flex flex-col items-center justify-center gap-12 p-6 py-[100px] lg:p-8 lg:py-[100px]"
+  class="box-border flex flex-col items-center justify-center gap-12 p-6 py-[50px] lg:p-8 lg:py-[100px]"
 >
   <div class="text-copy-16-semibold md:text-copy-18-semibold lg:text-copy-20-semibold uppercase">
     Work Faster, Smarter
   </div>
-  <div class="text-heading-40 md:text-heading-48 lg:text-heading-56 text-start md:text-center">
+  <div class="text-heading-40 md:text-heading-48 lg:text-heading-56 text-center">
     Solve Design Challenges Effortlessly
   </div>
 
   <!-- Features -->
   <!-- Feature: Accurate Simulations -->
-  <div class="container box-border grid grid-cols-1 gap-12 lg:grid-cols-2">
+  <div class="container box-border grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-12">
     <div
       class="bg-component-default box-border flex items-center justify-start gap-5 rounded-3xl p-6 lg:p-8"
     >

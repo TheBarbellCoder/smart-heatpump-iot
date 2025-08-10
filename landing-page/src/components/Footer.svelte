@@ -7,7 +7,7 @@
 </script>
 
 <div
-  class="border-t-border-hover box-border flex items-center justify-end gap-14 border-t p-6 pt-[50px] pb-[100px] lg:p-8 lg:pt-[50px] lg:pb-[100px]"
+  class="border-t-border-hover box-border flex items-center justify-end gap-12 border-t p-6 py-[50px] lg:p-8 lg:pt-[50px] lg:pb-[100px]"
 >
   <div class="flex gap-3">
     <Button
