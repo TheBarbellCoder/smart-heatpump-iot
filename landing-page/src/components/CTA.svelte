@@ -3,7 +3,7 @@
 </script>
 
 <div
-  class="box-border flex flex-col items-center justify-center gap-14 rounded-3xl p-6 py-[100px] lg:p-8 lg:py-[100px]"
+  class="box-border flex flex-col items-center justify-center gap-12 rounded-3xl p-6 py-[100px] lg:p-8 lg:py-[100px]"
 >
   <div
     class="text-subheading-32-semibold md:text-heading-40 lg:text-heading-48
