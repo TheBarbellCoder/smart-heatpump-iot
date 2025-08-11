@@ -13,9 +13,10 @@
       ? `${$page.url.origin}${$page.url.pathname}`
       : ($page.url?.pathname ?? '/waitlist')
   );
-  // TODO Set ogImage to the snapshot of the dashboard.
   const ogImage = $derived(
-    $page.url && $page.url.origin ? `${$page.url.origin}/ThermaSim.svg` : '/ThermaSim.svg'
+    $page.url && $page.url.origin
+      ? `${$page.url.origin}/ThermaSim-Light-OG.png`
+      : '/ThermaSim-Light-OG.png'
   );
 </script>
 
@@ -50,19 +51,19 @@
       Be the first to simplify heat pump design with speed and precision
     </div>
   </div>
-  <form class="grid grid-cols-1 items-center space-y-5" action="https://submit-form.com/echo">
+  <form class="grid grid-cols-1 items-center space-y-5" action="https://submit-form.com/4srOQTL2w">
     <input
       type="text"
       name="name"
       placeholder="John Doe"
-      class="bg-component-default/50 text-foreground-secondary rounded-md border-0 outline-none"
+      class="bg-component-default text-foreground-secondary rounded-md border-0 outline-none"
       required="required"
     />
     <input
       type="email"
       name="email"
       placeholder="john.doe@example.com"
-      class="bg-component-default/50 text-foreground-secondary rounded-md border-0 outline-none"
+      class="bg-component-default text-foreground-secondary rounded-md border-0 outline-none"
       required="required"
     />
     <label for="consent" class="inline-flex items-center gap-2">

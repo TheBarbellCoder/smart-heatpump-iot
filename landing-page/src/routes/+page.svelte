@@ -13,9 +13,10 @@
       ? `${$page.url.origin}${$page.url.pathname}`
       : ($page.url?.pathname ?? '/')
   );
-  // TODO Set ogImage to the snapshot of the dashboard.
   const ogImage = $derived(
-    $page.url && $page.url.origin ? `${$page.url.origin}/ThermaSim.svg` : '/ThermaSim.svg'
+    $page.url && $page.url.origin
+      ? `${$page.url.origin}/ThermaSim-Light-OG.png`
+      : '/ThermaSim-Light-OG.png'
   );
 </script>
 

@@ -34,9 +34,9 @@
 >
   <!-- Light mode image -->
   {#if theme.isLight}
-    <img src="/ThermaSim-Light.png" alt="Simulator" class="rounded-lg" />
+    <img src="/ThermaSim-Dark.png" alt="Simulator (dark)" class="rounded-lg" />
     <!-- Dark mode image -->
   {:else}
-    <img src="/ThermaSim-Dark.png" alt="Simulator (dark)" class="rounded-lg" />
+    <img src="/ThermaSim-Light.png" alt="Simulator" class="rounded-lg" />
   {/if}
 </div>
