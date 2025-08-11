@@ -2,7 +2,9 @@
   import '../app.css';
   import Navbar from '../components/Navbar.svelte';
   import Footer from '../components/Footer.svelte';
+  import { injectAnalytics } from '@vercel/analytics/sveltekit';
   let { children } = $props();
+  injectAnalytics();
 </script>
 
 <svelte:head>
